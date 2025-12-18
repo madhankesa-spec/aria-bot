@@ -1,0 +1,46 @@
+generator client {
+    provider = "prisma-client-py"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model OPT_Party {
+    PTY_ID        String  @id @db.Uuid
+    PTY_FirstName String?
+    PTY_LastName  String?
+    PTY_Phone     String?
+    PTY_SSN       String?
+
+    addresses OPT_Address[]
+
+    @@map("OPT_Party")
+}
+
+model OPT_Address {
+    Add_ID      String  @id @db.Uuid
+    Add_Line1   String?
+    Add_Line2   String?
+    Add_City    String?
+    Add_State   String? @db.Uuid
+    Add_Zip     String?
+    Add_PartyID String? @db.Uuid
+
+    party OPT_Party? @relation(fields: [Add_PartyID], references: [PTY_ID])
+    state SYS_State? @relation(fields: [Add_State], references: [Stt_ID])
+
+    @@index([Add_PartyID])
+    @@map("OPT_Address")
+}
+
+model SYS_State {
+    Stt_ID   String  @id @db.Uuid
+    Stt_Name String?
+    Stt_Code String?
+
+    addresses OPT_Address[]
+
+    @@map("SYS_State")
+}

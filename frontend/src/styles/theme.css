@@ -1,0 +1,74 @@
+:root {
+  /* Brand */
+  --aria-brand-from: #D4145A;
+  --aria-brand-to: #FBB03B;
+  --aria-brand: var(--aria-brand-from);
+  --aria-brand-2: var(--aria-brand-to);
+
+  /* Surfaces */
+  --aria-surface: #ffffff;
+  --aria-surface-2: rgba(255, 255, 255, 0.78);
+  --aria-bg: #fff7f2;
+  --aria-bg-2: #fff1ea;
+  --aria-border: rgba(15, 23, 42, 0.10);
+
+  /* Text */
+  --aria-ink: #0b1220;
+  --aria-muted: rgba(11, 18, 32, 0.62);
+
+  /* Effects */
+  --aria-shadow-sm: 0 1px 2px rgba(11, 18, 32, 0.08);
+  --aria-shadow-md: 0 10px 30px rgba(11, 18, 32, 0.10);
+  --aria-shadow-lg: 0 18px 60px rgba(11, 18, 32, 0.14);
+  --aria-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.42), 0 10px 18px rgba(11, 18, 32, 0.12);
+  --aria-text-shadow-soft: 0 1px 0 rgba(255, 255, 255, 0.30);
+
+  /* Typography: modern “big tech” style */
+  --aria-font-sans: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Noto Sans Devanagari", "Noto Sans Telugu", "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+html,
+body {
+  font-family: var(--aria-font-sans);
+  background: radial-gradient(1200px 700px at 20% 0%, rgba(212, 20, 90, 0.12), transparent 55%),
+    radial-gradient(900px 600px at 90% 10%, rgba(251, 176, 59, 0.14), transparent 52%),
+    linear-gradient(180deg, var(--aria-bg), var(--aria-bg-2));
+  color: var(--aria-ink);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 23, 42, 0.3);
+}
+
+/* Reusable helpers (feel free to apply in Tailwind className strings) */
+.aria-gradient {
+  background-image: linear-gradient(90deg, var(--aria-brand-from), var(--aria-brand-to));
+}
+
+.aria-glow {
+  box-shadow: 0 10px 30px rgba(212, 20, 90, 0.18), 0 12px 40px rgba(251, 176, 59, 0.18);
+}
+
+.aria-title {
+  text-shadow: var(--aria-text-shadow);
+}
+
+.aria-text {
+  text-shadow: var(--aria-text-shadow-soft);
+}
